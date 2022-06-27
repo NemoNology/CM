@@ -1,0 +1,5 @@
+﻿  CM_Lab7.cpp
+D:\_PROGRAMMING_\MY\CM_Lab7\Methods.h(78,18): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+D:\_PROGRAMMING_\MY\CM_Lab7\Methods.h(150,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\_PROGRAMMING_\MY\CM_Lab7\Methods.h(243,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  CM_Lab7.vcxproj -> D:\_PROGRAMMING_\MY\CM_Lab7\x64\Debug\CM_Lab7.exe
