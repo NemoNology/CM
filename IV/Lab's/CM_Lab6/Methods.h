@@ -18,6 +18,10 @@ vector<double> Eyler(int k, double h, vector<double> x, vector<double> y, double
 
 	}
 
+	/*for (int i = 1; i < k; i++) {
+		y[i] = y[i - 1] + h * f(x[i - 1], y[i - 1]);
+	}*/
+
 	return y;
 
 }
@@ -35,6 +39,10 @@ vector<double> EylerMod(int k, double h, vector<double> x, vector<double> y, dou
 		y[i + 1] = y[i] + h * F(x[i] + h/2, y[i] + h/2 * F(x[i], y[i]));
 
 	}
+
+	/*for (int i = 1; i < k; i++) {
+		y[i] = y[i - 1] + h * f(x[i - 1] + h / 2, y[i - 1] + h / 2 * f(x[i - 1], y[i - 1]));
+	}*/
 
 	return y;
 
@@ -62,6 +70,17 @@ vector<double> Runge_Cute(int k, double h, vector<double> x, vector<double> y, d
 
 	}
 
+	//double[][] z = new double[3][4];
+
+	/*for (int i = 0; i < 3; i++) {
+		z[i][0] = h * f(x[i], y[i]);
+		z[i][1] = h * f(x[i] + h / 2, y[i] + z[i][0] / 2);
+		z[i][2] = h * f(x[i] + h / 2, y[i] + z[i][1] / 2);
+		z[i][3] = h * f(x[i] + h, y[i] + z[i][2]);
+
+		y[i + 1] = y[i] + (z[i][0] + 2 * z[i][1] + 2 * z[i][2] + z[i][3]) / 6;
+	}*/
+
 	return y;
 
 }
@@ -83,6 +102,13 @@ vector<double> Adams(int k, double h, vector<double> x, vector<double> y, double
 		y[i + 1] = y[i] + (h/24) * t;
 
 	}
+
+	//double[] t = new double[k - 1];
+
+	/*for (int i = 3; i < k - 1; i++) {
+		t[i] = 55 * f(x[i], y[i]) - 59 * f(x[i - 1], y[i - 1]) + 37 * f(x[i - 2], y[i - 2]) - 9 * f(x[i - 3], y[i - 3]);
+		y[i + 1] = y[i] + h / 24 * t[i];
+	}*/
 
 	return y;
 
