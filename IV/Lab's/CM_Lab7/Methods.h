@@ -242,32 +242,100 @@ vector<vector<double>> Frobenius(vector<vector<double>> A) {
 	vector<vector<double>> res, e;
 	int n = A.size();
 
-	for (int i = 1; i < n - 1; i++) {
+	//for (int i = 1; i < n - 1; i++) {
+	for (int i = 2; i < n; i++) {
 
 		e = E(n);
 
-		for (int j = 1; j < n; j++) {
+		/*for (int j = 1; j < n; j++) {*/
+		for (int j = 0; j < n; j++) {
 			
-			if (j == n - i) {
+			//if (j == n - i) {
+			if (j != n - i) {
 
-				e[(n - i) - 1][j - 1] = 1 / A[(n - (i - 1)) - 1][(n - i) - 1];
+				//e[(n - i) - 1][j - 1] = 1 / A[(n - (i - 1)) - 1][(n - i) - 1];
+				e[n - i][j] = -A[n - (i - 1)][j] / A[n - (i - 1)][n - i];
 
 			}
 			else {
 
-				e[(n - i) - 1][j - 1] = -A[(n - 1) - i][j - 1] / A[(n - 1) - i][(n - i) - 1];
+				//e[(n - i) - 1][j - 1] = -A[(n - 1) - i][j - 1] / A[(n - 1) - i][(n - i) - 1];
+				e[n - i][j] = 1 / A[n - (i - 1)][n - i];
 
 			}
 
 		}
 
-		A = MMul(MMul(MInv(e), A), e);
+		//A = MMul(MMul(MInv(e), A), e);
+
+
+		cout << "Recalculating matrix e" << i << endl;
+		ShowVector(e);
+
+		cout << "Matrix e (Inv)" << i << endl;
+		ShowVector(MInv(e));
+
+		//A = MMul(MMul(bx, A), e);
+		cout << "New matrix A" << i << endl;
+		ShowVector(MMul(MMul(MInv(e), A), e));
+		//data.push_back(e);
+
 
 	}
 
 	return A;
 
 }
+
+
+///*-----нахожд. собстевенных векторов-----*/
+//	double** tmp;
+//	double s;
+//	double lambda = 7.79216;
+//
+//	vector<double**> lambdavectors;			// вектор, содерж. матрицы типа double
+//	double** lambdavec = mNull(5);			// матрица из нулей
+//
+//	for (int i = 0; i < 5; i++)			// заполнение маириицы
+//	{
+//		lambdavec[i][0] = pow(lambda, 4 - i);
+//	}
+//
+//	lambdavectors.push_back(lambdavec);		// добавляем полученное значение в конец
+//
+//	cout << "lambdavec1" << endl;			// выводим всё это дело
+//	show(lambdavec);
+//	cout << endl;
+//
+//	for (int m = 2; m <= 5; m++)
+//	{
+//		tmp = data.back();
+//		data.pop_back();
+//		lambdavec = lambdavectors.back();
+//
+//		cout << "matr" << endl;
+//		show(tmp);
+//		cout << endl;
+//
+//		for (int i = 0; i < 5; i++)
+//		{
+//			s = 0;
+//			for (int k = 0; k < 5; k++)
+//			{
+//				s = s + tmp[i][k] * lambdavec[k][0];
+//			}
+//
+//			vec[i][0] = s;
+//		}
+//
+//		lambdavectors.push_back(vec);
+//		cout << "Lambda vec" << m << endl;
+//		show(vec);
+//		cout << endl;
+//	}
+//
+//	cout << "Ответ:" << endl;
+//	show(vec);
 
 
 // todo: доделай 7-ую лабу
