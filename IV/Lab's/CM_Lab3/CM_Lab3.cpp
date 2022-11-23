@@ -13,13 +13,13 @@ int main()
 
     double x0 = -0.6;
 
-    //ShowVector(CalcFinDiffFun(x, y));
+    ShowVector(CalcFinDiffFun(x, y));
 
-    //cout << "\t" << L_n(x0, x, y) << "\n";
+    cout << "Langrange:\t" << L_n(x0, x, y) << "\n";
     
     // Ошибка: Смотреть todo в функциях ниже
-    //cout << "\t" << NF(x0, x, y, CalcFinDiffFun(x, y)) << "\n";
-    //cout << "\t" << NB(x0, x, y, CalcFinDiffFun(x, y)) << "\n";
+    cout << "NewtonNF:\t" << NF(x0, x, y, CalcFinDiffFun(x, y)) << "\n";
+    cout << "NewtonNB:\t" << NB(x0, x, y, CalcFinDiffFun(x, y)) << "\n";
 
     system("pause");
     return 0;
