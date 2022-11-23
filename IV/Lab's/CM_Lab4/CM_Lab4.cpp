@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
-#include <math.h>
 #include <corecrt_math_defines.h>
 #include "Methods.h"
 
@@ -20,12 +19,12 @@ int main()
 	double e = 0.001, x0 = M_PI / 4, M1 = 27, M2 = 243, h = 0.01;
 	double (*pF)(double x) = F;
 
-	double D1 = (M1 / 6) * h * h;
-	double D2 = (M2 / 30) * pow(h, 4);
+	//double D1 = (M1 / 6) * h * h;
+	//double D2 = (M2 / 30) * pow(h, 4);
 	
 	
-	//cout << setprecision(4) << setw(14) << NumDif1(x0, h, pF) << "\n";
-	//cout << setprecision(4) << setw(14) << NumDif2(x0, h, pF) << "\n";
+	cout << setprecision(4) << "Formula 1 (NumDif1):\t" << NumDif1(x0, h, pF) << "\n";
+	cout << setprecision(4) << "Formula 2 (NumDif2):\t" << NumDif2(x0, h, pF) << "\n";
 
 
 
@@ -36,8 +35,8 @@ int main()
 	double D;
 	vector<vector<double>> z = CalcFinDiffFun(x, y);
 	
-	//ShowVector(z);
+	ShowVector(z);
 
-	//CalcProiz(x, y, h, z);
+	CalcProiz(x, y, h, z);
 
 }

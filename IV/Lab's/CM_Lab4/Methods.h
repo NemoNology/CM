@@ -73,11 +73,13 @@ vector<vector<double>> CalcFinDiffFun(vector<double> x, vector<double> f) {
 			if (m == 1) {
 
 				y[m][k] = f[k + 1] - f[k];
+				//y[m][k] = (f[k + 1] - f[k]) / (x[k + 1] - x[k]);
 
 			}
 			else {
 
 				y[m][k] = y[m - 1][k + 1] - y[m - 1][k];
+				//y[m][k] = (y[m - 1][k + 1] - y[m - 1][k]) / (x[k + m] - x[k]);
 
 			}
 
